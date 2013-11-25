@@ -47,14 +47,13 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
       out.write("        <title>JSP/WebServer</title>\n");
+      out.write("        <link rel=\"stylesheet\" href=\"estilo.css\">\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
-      out.write("        <h1>Trabalho de Programação</h1>\n");
-      out.write("        <div>\n");
-      out.write("            <h2>Cadastro de Usuários</h2>\n");
+      out.write("        <div id=\"div-form\">\n");
       out.write("            <form action=\"add\" method=\"POST\">\n");
       out.write("                <fieldset>\n");
-      out.write("                    <legend>Formulário</legend>\n");
+      out.write("                    <legend>Cadastro de Usuário</legend>\n");
       out.write("                    <label for=\"nome\">\n");
       out.write("                        <span>Nome:</span> <input type=\"text\" id=\"nome\" name=\"nome\" value=\"\" size=\"50\" autofocus /> <br>\n");
       out.write("                    </label>\n");
@@ -69,9 +68,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                </fieldset>\n");
       out.write("            </form>\n");
       out.write("        </div>\n");
-      out.write("        <div>\n");
-      out.write("            ");
-      out.write("<hr/>\n");
+      out.write("        <div id=\"div-list\">\n");
       out.write("            ");
 
             try {
@@ -93,8 +90,8 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
                     out.println("<tr>");
                     out.println("<td>"+result.get(i).getNome()+"</td>");
                     out.println("<td>"+result.get(i).getUsuariosPK().getLogin()+"</td>");
-                    out.println("<td><a href=\"editar.jsp?idusuario="+result.get(i).getUsuariosPK().getIdusuario()+"\">Editar<a/></td>");
-                    out.println("<td><a href=\"remove?idusuario="+result.get(i).getUsuariosPK().getIdusuario()+"\">Excluir<a/></td>");
+                    out.println("<td><a href=\"editar.jsp?idusuario="+result.get(i).getUsuariosPK().getIdusuario()+"\">Editar<a/></br>");
+                    out.println("<a href=\"remove?idusuario="+result.get(i).getUsuariosPK().getIdusuario()+"\">Excluir<a/></td>");
                     out.println("</tr>");
                 }
                 
@@ -104,8 +101,6 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
             }
             
       out.write("\n");
-      out.write("            ");
-      out.write("<hr/>\n");
       out.write("        </div>\n");
       out.write("    </body>\n");
       out.write("</html>\n");
